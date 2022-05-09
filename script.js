@@ -2,11 +2,33 @@ const toggle = document.getElementById('toggle');
 const close = document.getElementById('close');
 const open = document.getElementById('open');
 const modal = document.getElementById('modal');
+const nav = document.getElementById('nav');
 
 
 // Toggle Navigation
 const toggleNav = () => {
   document.body.classList.toggle('show-nav');
+  if (document.body.classList.contains('show-nav')) {
+    document.body.addEventListener('click', handleOutsideNavClick);
+  }
+};
+
+
+// Hide Navigation on outside click
+const handleOutsideNavClick = (event) => {
+  if (document.body.classList.contains('show-nav') 
+      && event.target !== toggle
+      && !toggle.contains(event.target)
+      && event.target !== nav
+      && !nav.contains(event.target)
+  ) {
+    document.body.classList.remove('show-nav');
+    document.body.removeEventListener('click', handleOutsideNavClick);
+  } 
+  
+  else if (!document.body.classList.contains('show-nav')) {
+    document.body.removeEventListener('click', handleOutsideNavClick);
+  }
 };
 
 
