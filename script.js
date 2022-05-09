@@ -22,7 +22,16 @@ const hideModal = () => {
 };
 
 
+// Hide Modal on outside click
+const handleOutsideModalClick = (event) => {
+  if (event.target.classList.contains('modal-container')) {
+    hideModal();
+  }
+};
+
+
 // Event Listeners
 toggle.addEventListener('click', toggleNav);
 open.addEventListener('click', showModal);
 close.addEventListener('click', hideModal);
+modal.addEventListener('click', handleOutsideModalClick);
