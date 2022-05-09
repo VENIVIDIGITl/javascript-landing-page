@@ -10,5 +10,19 @@ const toggleNav = () => {
 };
 
 
+// Show Modal
+const showModal = () => {
+  modal.classList.add('show-modal');
+};
+
+
+// Hide Modal
+const hideModal = () => {
+  modal.classList.remove('show-modal');
+};
+
+
 // Event Listeners
 toggle.addEventListener('click', toggleNav);
+open.addEventListener('click', showModal);
+close.addEventListener('click', hideModal);
